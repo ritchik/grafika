@@ -91,6 +91,7 @@ export class Cube {
     ];
     
     this.updateMatrix();
+    this.updateFaceColors();
   }
   
   private updateFaceColors(): void {

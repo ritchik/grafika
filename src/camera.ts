@@ -39,8 +39,8 @@ export class Camera {
 
 
   
-  constructor(fov: number = 60, aspect: number = 1, near: number = 0.1, far: number = 100) {
-    this.position = new Vector3(0, 2, 5);
+  constructor(fov: number = 60, aspect: number = 1, near: number = 0.1, far: number = 1000) {
+    this.position = new Vector3(0, 10, 50);
     this.target = new Vector3(0, 0, 0);
     this.up = new Vector3(0, 1, 0);
     

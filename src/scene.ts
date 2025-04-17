@@ -19,25 +19,21 @@ export class Scene {
   }
   
   private initCubes(): void {
-    // Create 4 cubes with different colors and positions
+    // Create 2 cubes with different colors and positions
     const colors = [
       Color.fromHex(0xff0000), // Red
-      Color.fromHex(0x00ff00), // Green
-      Color.fromHex(0x0000ff), // Blue
-      Color.fromHex(0xffff00)  // Yellow
+      Color.fromHex(0x00ff00)  // Green
     ];
     
-    const positions = [
-      new Vector3(-2, 0, 0),
-      new Vector3(2, 0, 0),
-      new Vector3(0, 0, -2),
-      new Vector3(0, 0, 2)
-    ];
+    // Create first cube (red)
+    const cube1 = new Cube(new Vector3(-0.5, 0, 0), colors[0]);
+    cube1.scale = new Vector3(40, 1, 20); // Make it 40x1x20
+    this.cubes.push(cube1);
     
-    for (let i = 0; i < 4; i++) {
-      const cube = new Cube(positions[i], colors[i]);
-      this.cubes.push(cube);
-    }
+    // Create second cube (green) - positioned 1 unit away from the first cube
+    const cube2 = new Cube(new Vector3(0.5, 2, 0), colors[1]);
+    cube2.scale = new Vector3(40, 1, 20); // Make it 40x1x20
+    this.cubes.push(cube2);
   }
   
   toggleTransparency(): void {
@@ -49,7 +45,7 @@ export class Scene {
   }
   
   update(): void {
-    // Animate cubes - rotate them
+    // Update cubes without rotation
     for (const cube of this.cubes) {
       cube.update();
     }
